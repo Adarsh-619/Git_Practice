@@ -30,11 +30,11 @@ jobs:
           java-version: 1.8
 
       - name: Step 4 - Build your Jakarta web app with maven
-        run: echo mvn -B package --file pom.xml
+        run: echo "mvn -B package --file pom.xml"
 
       - name: Step 5 - Check Windows Execution policy
         run: |
-          echo Here is the Windows Execution Policy
+          echo "Here is the Windows Execution Policy"
           Get-ExecutionPolicy
     
       - name: Step 6 - List Windows Environment Variables
