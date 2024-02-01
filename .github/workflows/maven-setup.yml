@@ -23,7 +23,9 @@ jobs:
         java-version: '1.8'
     
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: |
+        mvn -B package --file pom.xml
+        mkdir staging && cp target/*.jar staging
 
     - name: Setup Cache for Maven
       uses: actions/cache@v3
@@ -37,3 +39,8 @@ jobs:
         cd target
         ls -a
 
+    - name: Persist workflow as artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: myArtifact
+        path: staging
